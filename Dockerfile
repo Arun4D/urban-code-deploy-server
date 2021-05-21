@@ -1,9 +1,10 @@
-FROM openjdk:8u111-jre
+FROM openjdk:8u292-jdk
 
 ENV ARTIFACT_DOWNLOAD_URL="https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/RAA/07qj8/0/ibm-ucd-7.0.0.1.987254.zip"
 
 COPY install.properties /tmp
 COPY entrypoint.sh /ucd_entrypoint.sh
+
 
 RUN curl -Lk $ARTIFACT_DOWNLOAD_URL > /tmp/ucd-server.zip \
   && unzip -d /tmp /tmp/ucd-server.zip \
